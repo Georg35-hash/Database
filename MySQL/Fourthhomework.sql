@@ -1,10 +1,10 @@
--- 1. TASK Вывести все заказы, отсортированные по убыванию по стоимости
+-- 1. TASK 
 SELECT * FROM orders ORDER BY cost DESC;
 
--- 2. TASK Вывести всех заказчиков, у которых почта зарегистрирована на gmail.com
+-- 2. TASK 
 SELECT * FROM customers WHERE email LIKE '%@gmail.com';
 
--- 3. TASK Вывести заказы с вычисляемым столбцом status
+-- 3. TASK 
 SELECT *,
   CASE 
     WHEN cost < 100 THEN 'low'
@@ -13,27 +13,27 @@ SELECT *,
   END AS status
 FROM orders;
 
--- 4. TASK Вывести заказчиков по убыванию рейтинга
+-- 4. TASK 
 SELECT * FROM customers ORDER BY rating DESC;
 
--- 5. TASK Вывести всех заказчиков из выбранного города (например, 'Kyiv')
+-- 5. TASK 
 SELECT * FROM customers WHERE city = 'Kyiv';
 
--- 6. TASK Написать запрос, который вернет самый часто продаваемый товар
+-- 6. TASK 
 SELECT product_id, COUNT(*) AS count
 FROM order_items
 GROUP BY product_id
 ORDER BY count DESC
 LIMIT 1;
 
--- 7. TASK Вывести список заказов с максимальной скидкой
+-- 7. TASK 
 SELECT * FROM orders WHERE discount = (SELECT MAX(discount) FROM orders);
 
 -- 8. TASK Ответ: Скидка определяется как разница между нормальной ценой и ценой со скидкой.
 
 -- 9. TASK Ответ: Да, это может быть разница между нормальной ценой и скидочной ценой.
 
--- 10. TASK Вывести все заказы с дополнительным столбцом процент_скидки
+-- 10. TASK 
 SELECT *, 
   ((normal_price - discount_price) / normal_price) * 100 AS процент_скидки
 FROM orders;
