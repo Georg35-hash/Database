@@ -5,7 +5,7 @@ SELECT COUNT(*) AS employee_count FROM employees;
 -- 2 TASK
 SELECT COUNT(*) AS department_count FROM departments;
 -- 3 TASK
-USE World;
+USE world;
 
 -- 4 TASK
 SELECT AVG(Population) AS average_population
